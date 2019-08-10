@@ -38,7 +38,7 @@ const Movie = (props) => {
   return (
     <div className="save-wrapper">
       {!isLoading ? <MovieCard movie={movie} /> : null}
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={() => {props.addToSavedList(movie)}}>Save</div>
     </div>
   );
 }
