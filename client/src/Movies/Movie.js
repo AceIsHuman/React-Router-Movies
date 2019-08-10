@@ -23,13 +23,13 @@ const Movie = (props) => {
           console.error(error);
         });
 
-  },[]);
+  },[props.match.params.id]);
   
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    const addToSavedList = props.addToSavedList;
+    addToSavedList(movie)
+  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -38,7 +38,7 @@ const Movie = (props) => {
   return (
     <div className="save-wrapper">
       {!isLoading ? <MovieCard movie={movie} /> : null}
-      <div className="save-button" onClick={() => {props.addToSavedList(movie)}}>Save</div>
+      <div className="save-button" onClick={saveMovie}>Save</div>
     </div>
   );
 }
